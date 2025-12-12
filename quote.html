@@ -30,15 +30,6 @@
       margin: 0 auto 1rem;
     }
 
-    /* Optional small tagline style (if you add one later) */
-    .tagline {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #bfc3c8;   /* light gray from logo */
-      margin-top: 0.25rem;
-      letter-spacing: 0.5px;
-    }
-
     h1 {
       font-size: 2rem;
       margin-top: 1rem;
@@ -115,7 +106,7 @@
 
 <div class="form-wrapper">
   <form name="garage-quote" method="POST" data-netlify="true">
-    <!-- Required by Netlify to recognize the form -->
+    <!-- Required for Netlify -->
     <input type="hidden" name="form-name" value="garage-quote">
 
     <label for="name">Name</label>
@@ -138,7 +129,7 @@
     <label for="city">City</label>
     <input type="text" id="city" name="city" required />
 
-    <label for="details">Tell Us About Your Garage</label>
+    <label for="details">Is There Anything Unique About Your Space?</label>
     <textarea id="details" name="details"></textarea>
 
     <button type="submit">Submit Quote Request</button>
@@ -147,4 +138,5 @@
 
 </body>
 </html>
+
 
