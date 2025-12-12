@@ -43,7 +43,8 @@
     .logo-side {
       flex: 0 0 42%;
       text-align: center;
-      transform: translateX(-40px); /* HARD LEFT SHIFT */
+      transform: translateX(-50px);
+      background: none; /* ENSURES NO BOX */
     }
 
     .logo-side img {
@@ -51,6 +52,9 @@
       max-width: 520px;
       display: block;
       margin: 0 auto;
+      background: none;
+      border: none;
+      box-shadow: none;
     }
 
     .tagline {
@@ -62,7 +66,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* RIGHT SIDE IMAGE */
+    /* RIGHT IMAGE */
     .hero-image {
       flex: 0 0 58%;
     }
@@ -70,7 +74,7 @@
     .hero-image img {
       width: 100%;
       height: auto;
-      border-radius: 14px;
+      border-radius: 16px;
       display: block;
     }
 
@@ -84,7 +88,7 @@
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 1.2rem;
+      margin: 0 1.25rem;
       font-weight: bold;
     }
 
@@ -92,7 +96,7 @@
       text-decoration: underline;
     }
 
-    /* ===== HERO CONTENT ===== */
+    /* ===== HERO SECTION ===== */
     .hero {
       padding: 4rem 2rem;
       text-align: center;
@@ -106,7 +110,7 @@
 
     .hero p {
       font-size: 1.15rem;
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto 2rem;
     }
 
@@ -137,10 +141,6 @@
       .logo-side img {
         max-width: 420px;
       }
-
-      .hero-image {
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -149,14 +149,14 @@
 
   <header class="hero-header">
     <div class="header-inner">
-      
+
       <div class="logo-side">
         <img src="logo_cropped.png" alt="Total Garage Refresh Logo" />
         <div class="tagline">Clear the Clutter. Reclaim Your Space.</div>
       </div>
 
       <div class="hero-image">
-        <img src="garage-clean-house.webp" alt="Organized Garage" />
+        <img src="garage-clean-house.webp" alt="Clean Organized Garage" />
       </div>
 
     </div>
@@ -176,7 +176,7 @@
       take back your space — without stress or wasted weekends.
     </p>
     <button onclick="window.location.href='quote.html'">
-      Get Your Free Garage Quote
+      Get Your Free Quote
     </button>
   </section>
 
