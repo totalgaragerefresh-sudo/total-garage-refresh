@@ -14,7 +14,7 @@
       color: #333;
     }
 
-    /* Header background matches home page */
+    /* Header matches home page */
     header {
       background: #333d49;
       color: white;
@@ -25,12 +25,12 @@
     /* Logo style */
     .quote-logo {
       width: 100%;
-      max-width: 450px;   /* Adjust size here if needed */
+      max-width: 450px;
       display: block;
       margin: 0 auto 1rem;
     }
 
-    /* Tagline */
+    /* Optional small tagline style (if you add one later) */
     .tagline {
       font-size: 1.25rem;
       font-weight: 700;
@@ -69,12 +69,15 @@
       margin-bottom: 0.5rem;
     }
 
-    input, textarea {
+    input,
+    textarea,
+    select {
       width: 100%;
       padding: 1rem;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
+      box-sizing: border-box;
     }
 
     textarea {
@@ -98,7 +101,6 @@
     button:hover {
       background: #e56f00;
     }
-
   </style>
 </head>
 
@@ -113,28 +115,36 @@
 
 <div class="form-wrapper">
   <form name="garage-quote" method="POST" data-netlify="true">
-    
+    <!-- Required by Netlify to recognize the form -->
     <input type="hidden" name="form-name" value="garage-quote">
 
-    <label>Name</label>
-    <input type="text" name="name" required />
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required />
 
-    <label>Email</label>
-    <input type="email" name="email" required />
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required />
 
-    <label>Phone Number</label>
-    <input type="text" name="phone" required />
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required />
 
     <label for="contact-method">Preferred Contact Method</label>
-<select id="contact-method" name="contact-method" required>
-    <option value="">Select one…</option>
-    <option value="phone">Phone Call</option>
-    <option value="text">Text Message</option>
-    <option value="email">Email</option>
-</select>
-<button type="submit" class="submit-btn">Submit Quote Request</button>
+    <select id="contact-method" name="contact-method" required>
+      <option value="">Select one…</option>
+      <option value="phone">Phone Call</option>
+      <option value="text">Text Message</option>
+      <option value="email">Email</option>
+    </select>
 
-    <label>City</label>
-    <input type="text" name="city" required />
+    <label for="city">City</label>
+    <input type="text" id="city" name="city" required />
 
-    <label>
+    <label for="details">Tell Us About Your Garage</label>
+    <textarea id="details" name="details"></textarea>
+
+    <button type="submit">Submit Quote Request</button>
+  </form>
+</div>
+
+</body>
+</html>
+
