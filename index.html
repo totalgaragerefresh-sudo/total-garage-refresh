@@ -6,355 +6,61 @@
   <title>Total Garage Refresh</title>
 
   <style>
-    :root{
-      --bg-dark:#333d49;
-      --nav-dark:#3a4452;
-      --orange:#f57c00;
-      --text:#222;
-      --muted:#666;
-      --light:#f6f7f9;
-      --tag-gray:#bfc3c8;
+    :root {
+      --bg-dark: #3b4552;
+      --orange: #ff7a00;
+      --light-gray: #bfc3c8;
+      --white: #ffffff;
     }
 
-    *{ box-sizing:border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    body{
-      margin:0;
+    body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background:#fff;
-      color:var(--text);
+      background: #f5f5f5;
+      color: #333;
     }
 
-    /* ===== HEADER (logo left, photo right) ===== */
-    header.hero-header{
-      background:var(--bg-dark);
-      padding:2.5rem 1.5rem;
+    /* ===== HEADER ===== */
+    header.hero-header {
+      background: var(--bg-dark);
+      padding: 3rem 2rem;
     }
 
-    .header-inner{
-      max-width:1200px;
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      gap:2.5rem;
+    .header-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
     }
 
-    .logo-side{
-  flex: 0 0 45%;
-  margin-left: -1.5rem; /* shift logo + tagline left */
-}
-
-
-    .logo-side img{
-      width:100%;
-      max-width:520px;
-      display:block;
+    /* LEFT SIDE (LOGO + TAGLINE) */
+    .logo-side {
+      flex: 0 0 42%;
+      text-align: center;
+      transform: translateX(-40px); /* HARD LEFT SHIFT */
     }
 
-   .tagline{
-  margin-top:1rem;
-  font-size:1.4rem;
-  font-weight:700;
-  color:var(--tag-gray);
-  letter-spacing:.5px;
-  text-align:center;      /* centers the text */
-  max-width:520px;        /* matches logo width */
-}
-
-    .image-side{
-      flex:0 0 55%;
+    .logo-side img {
+      width: 100%;
+      max-width: 520px;
+      display: block;
+      margin: 0 auto;
     }
 
-    .image-side img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:8px;
+    .tagline {
+      margin-top: 1.25rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--light-gray);
+      text-align: center;
+      letter-spacing: 0.5px;
     }
 
-    /* ===== NAV ===== */
-    nav{
-      background:var(--nav-dark);
-      padding:1rem;
-      text-align:center;
-      position:sticky;
-      top:0;
-      z-index:10;
-    }
-
-    nav a{
-      color:#fff;
-      margin:0 1rem;
-      text-decoration:none;
-      font-weight:bold;
-    }
-
-    nav a:hover{
-      text-decoration:underline;
-    }
-
-    /* ===== HERO TEXT SECTION ===== */
-    .hero{
-      padding:4rem 1.5rem;
-      background:var(--light);
-      text-align:center;
-    }
-
-    .hero h1{
-      margin:0 0 1rem 0;
-      font-size:2.4rem;
-      color:#2a2a2a;
-    }
-
-    .hero p{
-      max-width:820px;
-      margin:0 auto 2rem auto;
-      color:#444;
-      font-size:1.1rem;
-      line-height:1.6;
-    }
-
-    .hero .cta{
-      background:var(--orange);
-      color:#fff;
-      border:none;
-      padding:1rem 1.6rem;
-      border-radius:10px;
-      font-size:1.05rem;
-      font-weight:700;
-      cursor:pointer;
-    }
-
-    .hero .cta:hover{
-      opacity:.92;
-    }
-
-    /* ===== SECTION ===== */
-    section{
-      padding:4rem 1.5rem;
-    }
-
-    .container{
-      max-width:1100px;
-      margin:0 auto;
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:1.25rem;
-      margin-top:1.5rem;
-    }
-
-    .card{
-      background:#fff;
-      border:1px solid #e6e8ec;
-      border-radius:14px;
-      padding:1.25rem;
-      box-shadow:0 6px 18px rgba(0,0,0,.05);
-    }
-
-    .card h3{
-      margin:0 0 .5rem 0;
-    }
-
-    .card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.55;
-    }
-
-    /* ===== PARALLAX / STICKY PHOTO SECTION ===== */
-    .photo-break{
-      min-height:70vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:#fff;
-      padding:5rem 1.5rem;
-
-      /* This is the “still background as you scroll” effect */
-      background-image:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url("garage-clean-house.webp");
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-    }
-
-    .photo-break h2{
-      font-size:2.6rem;
-      margin:0 0 1rem 0;
-    }
-
-    .photo-break p{
-      max-width:900px;
-      margin:0 auto;
-      font-size:1.15rem;
-      line-height:1.6;
-      color:#f3f3f3;
-    }
-
-    /* ===== CONTACT ===== */
-    #contact .card{
-      max-width:760px;
-      margin:0 auto;
-      text-align:center;
-    }
-
-    #contact a{
-      color:var(--orange);
-      font-weight:700;
-      text-decoration:none;
-    }
-
-    /* ===== FOOTER ===== */
-    footer{
-      background:#2c3440;
-      color:#fff;
-      text-align:center;
-      padding:1.5rem;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px){
-      .header-inner{
-        flex-direction:column;
-        text-align:center;
-      }
-      .logo-side, .image-side{
-        flex:1 1 auto;
-      }
-      .logo-side img{
-        margin:0 auto;
-      }
-      .tagline{
-        text-align:center;
-      }
-      .split{
-        grid-template-columns:1fr;
-      }
-      /* iOS often ignores fixed background; this makes it still look good */
-      .photo-break{
-        background-attachment:scroll;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- HEADER -->
-  <header class="hero-header">
-    <div class="header-inner">
-      <div class="logo-side">
-        <img src="logo_cropped.png" alt="Total Garage Refresh Logo" />
-        <div class="tagline">Clear the Clutter. Reclaim Your Space.</div>
-      </div>
-
-      <div class="image-side">
-        <img src="garage-clean-house.webp" alt="Organized Garage" />
-      </div>
-    </div>
-  </header>
-
-  <!-- NAV -->
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#how-it-works">How It Works</a>
-    <a href="quote.html">Free Quote</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Garage Cleanouts & Organization Made Easy</h1>
-    <p>
-      We remove clutter, sort belongings, and refresh your garage so you can take back your space.
-      Simple process, honest work, and results you can actually maintain.
-    </p>
-    <button class="cta" onclick="window.location.href='quote.html'">Get Your Free Garage Quote</button>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <h2>What We Help With</h2>
-      <p style="color: var(--muted); line-height: 1.6; max-width: 900px;">
-        Whether you need a full reset or just want to reclaim a corner, we’ll build a plan that fits your space,
-        your schedule, and your goals.
-      </p>
-
-      <div class="split">
-        <div class="card">
-          <h3>Full Cleanout</h3>
-          <p>We clear everything out, sort it, and help you decide what stays, goes, donates, or gets hauled away.</p>
-        </div>
-        <div class="card">
-          <h3>Decluttering</h3>
-          <p>Quick wins and smart decisions. We reduce overwhelm and create space for what matters.</p>
-        </div>
-        <div class="card">
-          <h3>Organization & Shelving</h3>
-          <p>Zones, labels, and placement that makes sense — so your garage stays organized long after we leave.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STICKY PHOTO BREAK -->
-  <section class="photo-break">
-    <div>
-      <h2>Picture Your Garage Looking This Put Together</h2>
-      <p>
-        Clean floors, clear work surfaces, and everything in its place.
-        We create realistic, lived-in organization that fits how you actually use your garage.
-        No fancy staging — just a space that finally works for you.
-      </p>
-    </div>
-  </section>
-
-  <!-- MORE CONTENT (for scrolling) -->
-  <section id="how-it-works" style="background: var(--light);">
-    <div class="container">
-      <h2>How It Works</h2>
-
-      <div class="split">
-        <div class="card">
-          <h3>1) Tell us what you need</h3>
-          <p>Fill out the quick quote form so we know your goals and what you want the garage to do for you.</p>
-        </div>
-        <div class="card">
-          <h3>2) We make a plan</h3>
-          <p>We’ll suggest a clear approach (cleanout, declutter, organize, shelving) and what to expect.</p>
-        </div>
-        <div class="card">
-          <h3>3) We refresh your space</h3>
-          <p>We do the heavy lifting and set up a system that’s easy to maintain.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="card">
-        <h2>Contact</h2>
-        <p style="color: var(--muted); line-height: 1.6;">
-          Want a quote fast? Use the form and we’ll follow up.
-        </p>
-        <p style="margin-top: 1rem;">
-          <a href="quote.html">Request a Free Quote →</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © Total Garage Refresh
-  </footer>
-
-</body>
-</html>
+    /* RIGHT SIDE IMAGE */
+    .hero-image {
