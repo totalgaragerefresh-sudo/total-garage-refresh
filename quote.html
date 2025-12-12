@@ -3,127 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Get Your Free Quote - Total Garage Refresh</title>
+  <title>Get Your Free Garage Quote | Total Garage Refresh</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
+      background: #f8f8f8;
       color: #333;
     }
-    .quote-logo {
-  width: 100%;
-  max-width: 450px;      /* controls how big the logo can get */
-  display: block;
-  margin: 0 auto 1.5rem; /* center it and add space below */
-}
+
+    /* Header background matches home page */
     header {
-      background: #2c3440;
+      background: #333d49;
       color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 2rem 1rem;
     }
-    .form-section {
-      max-width: 700px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-    label {
+
+    /* Logo style */
+    .quote-logo {
+      width: 100%;
+      max-width: 450px;   /* Adjust size here if needed */
       display: block;
+      margin: 0 auto 1rem;
+    }
+
+    /* Tagline */
+    .tagline {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #bfc3c8;   /* light gray from logo */
+      margin-top: 0.25rem;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: 2rem;
       margin-top: 1rem;
+      margin-bottom: 0.25rem;
       font-weight: bold;
     }
-    input, textarea, select {
+
+    .subtext {
+      color: #ddd;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Form container */
+    .form-wrapper {
+      max-width: 900px;
+      background: white;
+      margin: 2rem auto;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    input, textarea {
       width: 100%;
-      padding: 0.75rem;
-      margin-top: 0.5rem;
-      border-radius: 8px;
+      padding: 1rem;
       border: 1px solid #ccc;
+      border-radius: 8px;
       font-size: 1rem;
     }
-    input[type="checkbox"] {
-      width: auto;
-      margin: 0;
-      padding: 0;
+
+    textarea {
+      height: 140px;
+      resize: vertical;
     }
+
     button {
-      background: #f77613;
+      background: #ff7a00;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 1rem 2rem;
       border: none;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
       cursor: pointer;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
+      width: 100%;
     }
+
+    button:hover {
+      background: #e56f00;
+    }
+
   </style>
 </head>
+
 <body>
-  <header>
-    <img
-  src="logo_cropped.png"
-  alt="Total Garage Refresh Logo"
-  style="width:90%; max-width:850px; display:block; margin:40px auto 20px auto;"
->
-    <h1>Get Your Free Quote</h1>
-    <p>Fast • Easy • No Obligation</p>
-  </header>
 
-  <section class="form-section">
-    <form>
-      <label for="name">Name</label>
-      <input type="text" id="name" required />
+<header>
+  <img src="logo_cropped.png" alt="Total Garage Refresh Logo" class="quote-logo">
 
-      <label for="email">Email</label>
-      <input type="email" id="email" required />
+  <h1>Get Your Free Quote</h1>
+  <p class="subtext">Fast • Easy • No Obligation</p>
+</header>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" required />
+<div class="form-wrapper">
+  <form name="garage-quote" method="POST" data-netlify="true">
+    
+    <input type="hidden" name="form-name" value="garage-quote">
 
-      <label for="contact_method">Preferred Contact Method</label>
-      <input type="text" id="contact_method" placeholder="Call, Text, or Email" />
+    <label>Name</label>
+    <input type="text" name="name" required />
 
-      <fieldset style="margin-top: 1rem; border: none; padding: 0;">
-        <legend style="font-weight: bold; margin-bottom: 0.5rem;">
-          What type of service do you need?
-          <span style="font-weight: normal;">(Select all that apply)</span>
-        </legend>
+    <label>Email</label>
+    <input type="email" name="email" required />
 
-        <label style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
-          <input type="checkbox" name="service[]" value="Full Cleanout" />
-          <span>Full Cleanout</span>
-        </label>
+    <label>Phone Number</label>
+    <input type="text" name="phone" required />
 
-        <label style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
-          <input type="checkbox" name="service[]" value="Decluttering" />
-          <span>Decluttering</span>
-        </label>
+    <label>City</label>
+    <input type="text" name="city" required />
 
-        <label style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
-          <input type="checkbox" name="service[]" value="Organization &amp; Shelving" />
-          <span>Organization &amp; Shelving</span>
-        </label>
-
-        <label style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
-          <input type="checkbox" name="service[]" value="Hazardous Item Removal" />
-          <span>Hazardous Item Removal</span>
-        </label>
-
-        <label style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
-          <input type="checkbox" name="service[]" value="Other" />
-          <span>Other</span>
-        </label>
-      </fieldset>
-
-      <label for="message">Tell us if there's anything unique about your space</label>
-      <textarea id="message" rows="5"></textarea>
-
-      <button type="submit">Submit Quote Request</button>
-    </form>
-  </section>
-</body>
-</html>
+    <label>
