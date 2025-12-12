@@ -39,4 +39,210 @@
     /* NAV */
     nav {
       background: #3a4452;
-      p
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 1.25rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO IMAGE SECTION */
+    .hero-image {
+      min-height: 85vh;
+      background-image: url("garage-clean-house.webp");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      position: relative;
+    }
+
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+      color: white;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-content a {
+      background: #ff7a18;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .hero-content a:hover {
+      background: #e66a10;
+    }
+
+    /* CONTENT SECTIONS */
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    section p {
+      font-size: 1.15rem;
+      max-width: 900px;
+      margin: 1rem auto;
+      text-align: center;
+    }
+
+    .divider {
+      height: 1px;
+      background: #ddd;
+      margin: 3rem auto;
+      max-width: 800px;
+    }
+
+    /* CTA */
+    .cta {
+      background: #333d49;
+      color: white;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #ff7a18;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 6px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .cta a:hover {
+      background: #e66a10;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #2c3440;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="logo_cropped.png" alt="Total Garage Refresh Logo" />
+    <div class="tagline">Clear the Clutter. Reclaim Your Space.</div>
+  </header>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="quote.html">Free Quote</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero-image">
+    <div class="hero-content">
+      <h1>Picture Your Garage Finally Working for You</h1>
+      <p>
+        Clean floors, clear work surfaces, and everything in its place.
+        We create realistic, lived-in organization — not showroom staging.
+      </p>
+      <a href="quote.html">Get Your Free Garage Quote</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Garage Cleanouts & Organization</h2>
+    <p>
+      Garages slowly become storage units for everything that doesn’t have a home.
+      We help you sort, remove, and reset your space so it actually works again.
+    </p>
+
+    <div class="divider"></div>
+
+    <p>
+      Whether your garage holds tools, sports gear, seasonal items, or years of clutter,
+      we design solutions that make sense for how you use your space — not how a catalog says you should.
+    </p>
+  </section>
+
+  <section id="how-it-works">
+    <h2>How It Works</h2>
+    <p>
+      We start by listening. Then we declutter, organize, and create a system you can maintain.
+      No pressure. No upselling. Just practical results.
+    </p>
+  </section>
+
+  <div class="cta">
+    <h2>Ready to Reclaim Your Garage?</h2>
+    <p>Fast • Easy • No Obligation</p>
+    <a href="quote.html">Request a Free Quote</a>
+  </div>
+
+  <footer>
+    © 2025 Total Garage Refresh. All rights reserved.
+  </footer>
+
+</body>
+</html>
