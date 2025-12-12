@@ -6,32 +6,26 @@
   <title>Total Garage Refresh</title>
 
   <style>
-    :root {
-      --bg-dark: #3b4552;
-      --orange: #ff7a00;
-      --light-gray: #bfc3c8;
-      --white: #ffffff;
-    }
-
+    /* RESET */
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #3f4a57;
+      color: #ffffff;
     }
 
-    /* ===== HEADER ===== */
-    header.hero-header {
-      background: var(--bg-dark);
-      padding: 3rem 2rem;
+    /* HERO HEADER */
+    .hero-header {
+      padding: 4rem 2rem 3rem;
     }
 
     .header-inner {
-      max-width: 1300px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -43,30 +37,26 @@
     .logo-side {
       flex: 0 0 42%;
       text-align: center;
-      transform: translateX(-50px);
-      background: none; /* ENSURES NO BOX */
     }
 
-    .logo-side img {
+    .hero-logo {
       width: 100%;
       max-width: 520px;
+      height: auto;
       display: block;
       margin: 0 auto;
-      background: none;
       border: none;
+      background: none;
       box-shadow: none;
     }
 
     .tagline {
       margin-top: 1.25rem;
       font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--light-gray);
-      text-align: center;
-      letter-spacing: 0.5px;
+      color: #d5d9dd;
     }
 
-    /* RIGHT IMAGE */
+    /* RIGHT SIDE (HERO IMAGE) */
     .hero-image {
       flex: 0 0 58%;
     }
@@ -74,72 +64,43 @@
     .hero-image img {
       width: 100%;
       height: auto;
-      border-radius: 16px;
       display: block;
+      border-radius: 14px;
     }
 
-    /* ===== NAV ===== */
+    /* NAV BAR */
     nav {
-      background: #2f3945;
-      padding: 1rem;
+      background-color: #36404b;
+      padding: 1rem 0;
       text-align: center;
     }
 
     nav a {
-      color: white;
+      color: #ffffff;
       text-decoration: none;
-      margin: 0 1.25rem;
-      font-weight: bold;
+      margin: 0 1.5rem;
+      font-weight: 600;
+      font-size: 1.05rem;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    /* ===== HERO SECTION ===== */
-    .hero {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: #ffffff;
-    }
-
-    .hero h2 {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      max-width: 720px;
-      margin: 0 auto 2rem;
-    }
-
-    .hero button {
-      background: var(--orange);
-      border: none;
-      color: white;
-      padding: 1rem 2.2rem;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .hero button:hover {
-      opacity: 0.9;
-    }
-
-    /* ===== MOBILE ===== */
+    /* MOBILE */
     @media (max-width: 900px) {
       .header-inner {
         flex-direction: column;
+        text-align: center;
       }
 
-      .logo-side {
-        transform: none;
+      .logo-side,
+      .hero-image {
+        flex: 0 0 100%;
       }
 
-      .logo-side img {
-        max-width: 420px;
+      .tagline {
+        font-size: 1.35rem;
       }
     }
   </style>
@@ -151,12 +112,19 @@
     <div class="header-inner">
 
       <div class="logo-side">
-       <img src="logo_cropped.png" alt="Total Garage Refresh Logo" />
+        <img
+          src="tg-refresh-logo.png"
+          alt="Total Garage Refresh Logo"
+          class="hero-logo"
+        />
         <div class="tagline">Clear the Clutter. Reclaim Your Space.</div>
       </div>
 
       <div class="hero-image">
-        <img src="garage-clean-house.webp" alt="Clean Organized Garage" />
+        <img
+          src="garage-clean-house.webp"
+          alt="Clean Organized Garage"
+        />
       </div>
 
     </div>
@@ -168,17 +136,6 @@
     <a href="quote.html">Free Quote</a>
     <a href="#contact">Contact</a>
   </nav>
-
-  <section class="hero">
-    <h2>Garage Cleanouts & Organization Made Easy</h2>
-    <p>
-      We remove clutter, sort belongings, and refresh your garage so you can
-      take back your space — without stress or wasted weekends.
-    </p>
-    <button onclick="window.location.href='quote.html'">
-      Get Your Free Quote
-    </button>
-  </section>
 
 </body>
 </html>
