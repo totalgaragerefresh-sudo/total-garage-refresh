@@ -97,6 +97,39 @@ nav{
   font-weight:900;
 }
 
+/* ================= STATIONARY BACKGROUND SECTION ================= */
+.fixed-hero{
+  /* this is the key */
+  background-image:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("garage-clean-house.webp");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed; /* stays stationary while you scroll */
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+}
+.fixed-hero .wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:4.5rem 1.5rem;
+  color:#fff;
+}
+.fixed-hero h1{
+  margin:0 0 1rem 0;
+  font-size:3rem;
+  line-height:1.1;
+}
+.fixed-hero p{
+  margin:0;
+  max-width:780px;
+  color:#e5e7eb;
+  font-size:1.15rem;
+  line-height:1.6;
+}
+
 /* ================= SECTIONS ================= */
 section{
   padding:4rem 1.5rem;
@@ -158,6 +191,14 @@ footer{
   .grid{grid-template-columns:1fr}
   .nav-inner{flex-wrap:wrap}
   .nav-cta{margin-left:0}
+  .fixed-hero h1{font-size:2.2rem}
+}
+
+/* Mobile Safari fix: background-attachment: fixed is unreliable on iOS */
+@media (max-width: 900px) {
+  .fixed-hero{
+    background-attachment:scroll;
+  }
 }
 </style>
 </head>
@@ -188,6 +229,18 @@ footer{
     </div>
   </div>
 </nav>
+
+<!-- STATIONARY BACKGROUND IMAGE SECTION -->
+<section class="fixed-hero">
+  <div class="wrap">
+    <h1>Picture Your Garage Working Again</h1>
+    <p>
+      Clean floors, clear surfaces, and everything in its place.
+      We create realistic, lived-in organization that fits how you actually use your garage.
+      No fancy staging — just a space that finally works for you.
+    </p>
+  </div>
+</section>
 
 <section id="services">
   <div class="wrap">
