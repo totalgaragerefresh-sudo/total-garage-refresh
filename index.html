@@ -64,3 +64,121 @@
 
     /* RIGHT SIDE IMAGE */
     .hero-image {
+      flex: 0 0 58%;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      display: block;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      background: #2f3945;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== HERO CONTENT ===== */
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .hero h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero button {
+      background: var(--orange);
+      border: none;
+      color: white;
+      padding: 1rem 2.2rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      opacity: 0.9;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 900px) {
+      .header-inner {
+        flex-direction: column;
+      }
+
+      .logo-side {
+        transform: none;
+      }
+
+      .logo-side img {
+        max-width: 420px;
+      }
+
+      .hero-image {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero-header">
+    <div class="header-inner">
+      
+      <div class="logo-side">
+        <img src="logo_cropped.png" alt="Total Garage Refresh Logo" />
+        <div class="tagline">Clear the Clutter. Reclaim Your Space.</div>
+      </div>
+
+      <div class="hero-image">
+        <img src="garage-clean-house.webp" alt="Organized Garage" />
+      </div>
+
+    </div>
+  </header>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="quote.html">Free Quote</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Garage Cleanouts & Organization Made Easy</h2>
+    <p>
+      We remove clutter, sort belongings, and refresh your garage so you can
+      take back your space — without stress or wasted weekends.
+    </p>
+    <button onclick="window.location.href='quote.html'">
+      Get Your Free Garage Quote
+    </button>
+  </section>
+
+</body>
+</html>
