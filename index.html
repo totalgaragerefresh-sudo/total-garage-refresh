@@ -70,6 +70,9 @@
       background: #3a4452;
       padding: 1rem;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
     nav a {
@@ -83,30 +86,50 @@
       text-decoration: underline;
     }
 
-    /* --- HERO SECTION --- */
-    .hero {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: #f0f2f5;
+    /* --- GENERIC SECTIONS --- */
+    .section {
+      padding: 4rem 1.5rem;
     }
 
-    .hero h2 {
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 2rem;
       margin-top: 0;
       margin-bottom: 1rem;
-      font-size: 2rem;
+      text-align: center;
+      color: #222;
     }
 
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 2rem;
+    .section p {
       font-size: 1rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
 
-    button {
+    /* --- TOP HERO TEXT SECTION --- */
+    .hero-copy {
+      background: #f0f2f5;
+      text-align: center;
+    }
+
+    .hero-copy h2 {
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+    }
+
+    .hero-copy p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    button.cta {
       background: #f77613;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.9rem 1.8rem;
       border: none;
       border-radius: 8px;
       font-size: 1rem;
@@ -114,8 +137,59 @@
       font-weight: bold;
     }
 
-    button:hover {
+    button.cta:hover {
       opacity: 0.9;
+    }
+
+    /* --- TWO-COLUMN SECTION --- */
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .two-column h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+      color: #222;
+    }
+
+    /* --- PARALLAX IMAGE SECTION --- */
+    .parallax {
+      position: relative;
+      background-image: url("garage-wall.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 6rem 1.5rem;
+    }
+
+    .parallax::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55); /* dark overlay */
+    }
+
+    .parallax-content {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .parallax-content h2 {
+      color: #fff;
+      font-size: 2.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .parallax-content p {
+      font-size: 1.05rem;
+      line-height: 1.7;
     }
 
     /* --- SERVICES GRID --- */
@@ -123,9 +197,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
-      padding: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
+      margin-top: 2rem;
     }
 
     .service-card {
@@ -139,6 +211,39 @@
     .service-card h3 {
       margin-top: 0;
       margin-bottom: 0.75rem;
+    }
+
+    /* --- PROCESS SECTION --- */
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0 0;
+      counter-reset: step-num;
+    }
+
+    .steps li {
+      margin-bottom: 1.5rem;
+      padding-left: 3.2rem;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .steps li::before {
+      counter-increment: step-num;
+      content: counter(step-num);
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: #f77613;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
     }
 
     /* --- FOOTER --- */
@@ -173,6 +278,10 @@
       .hero-image img {
         max-height: 220px;
       }
+
+      .parallax {
+        background-attachment: scroll; /* better behavior on mobile */
+      }
     }
   </style>
 </head>
@@ -204,36 +313,118 @@
     <a href="#services">Services</a>
     <a href="#how-it-works">How It Works</a>
     <a href="quote.html">Free Quote</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <!-- HERO TEXT SECTION -->
-  <section class="hero" id="how-it-works">
-    <h2>Garage Cleanouts &amp; Organization Made Easy</h2>
-    <p>
-      We remove clutter, sort belongings, and refresh your garage so you can take back your space.
-      From full cleanouts to smart organization, we handle the heavy lifting so you don’t have to.
-    </p>
-    <button onclick="window.location.href='quote.html'">
-      Get Your Free Garage Quote
-    </button>
+  <section class="section hero-copy" id="about">
+    <div class="section-inner">
+      <h2>Garage Cleanouts &amp; Organization Made Easy</h2>
+      <p>
+        Total Garage Refresh helps you turn an overwhelming, cluttered garage into a clean, organized space.
+        We sort, haul, and reset so you can park your car, find your tools, and actually enjoy walking into your garage again.
+      </p>
+      <p>
+        Whether you’re getting ready to sell your home, welcoming a new car, or just tired of stepping over boxes,
+        we handle the heavy lifting and decision fatigue for you.
+      </p>
+      <button class="cta" onclick="window.location.href='quote.html'">
+        Get Your Free Garage Quote
+      </button>
+    </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="services">
-    <div class="service-card">
-      <h3>Full Cleanout</h3>
-      <p>We clear out trash, debris, and unwanted items quickly and responsibly so you can start fresh.</p>
+  <!-- WHY IT MATTERS + WHAT WE DO -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>Why a Garage Refresh Matters</h2>
+      <div class="two-column">
+        <div>
+          <h3>More Space, Less Stress</h3>
+          <p>
+            A cluttered garage doesn’t just look messy—it makes daily life harder. You waste time searching for things,
+            avoid the space entirely, and eventually lose track of what you own.
+          </p>
+          <p>
+            We help you quickly decide what stays, what goes, and where everything should live so your garage works
+            like an extra room in your home instead of a big storage bin.
+          </p>
+        </div>
+        <div>
+          <h3>A System You Can Keep Up With</h3>
+          <p>
+            Our goal isn’t just a one-day makeover. We set up simple, logical zones—yard tools, sports gear, bulk storage,
+            seasonal items—so putting things away is easy and automatic.
+          </p>
+          <p>
+            You’ll know exactly where everything goes, and anyone in your household can find what they need in seconds.
+          </p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="service-card">
-      <h3>Sorting &amp; Organization</h3>
-      <p>We sort your items, group similar categories, and organize everything neatly so it’s easy to find.</p>
+  <!-- PARALLAX SECTION WITH YOUR PHOTO -->
+  <section class="parallax">
+    <div class="parallax-content">
+      <h2>Picture Your Garage Looking This Put Together</h2>
+      <p>
+        Clean floors, clear work surfaces, and every tool in its place. We create realistic, lived-in organization that fits
+        how you actually use your garage. No fancy staging, just a space that finally works for you.
+      </p>
     </div>
+  </section>
 
-    <div class="service-card">
-      <h3>Refresh &amp; Reset</h3>
-      <p>A complete garage refresh including sweeping, dusting, and reorganizing your entire space.</p>
+  <!-- SERVICES SECTION -->
+  <section id="services" class="section">
+    <div class="section-inner">
+      <h2>What We Can Help With</h2>
+      <div class="services">
+        <div class="service-card">
+          <h3>Full Cleanout</h3>
+          <p>We empty the clutter, sort items with you, and coordinate donation, recycling, and disposal.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Sorting &amp; Organization</h3>
+          <p>We group like items, create zones, and set up shelves or bins so everything has a clear home.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Light Cleaning &amp; Refresh</h3>
+          <p>We sweep, wipe down surfaces, and reset your garage so it feels fresh, open, and ready to use.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Project &amp; Hobby Zones</h3>
+          <p>Need a workbench, gym corner, or hobby area? We can carve out space that actually functions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS / PROCESS -->
+  <section id="how-it-works" class="section" style="background:#f0f2f5;">
+    <div class="section-inner">
+      <h2>How It Works</h2>
+      <ul class="steps">
+        <li>
+          <strong>Step 1 – Free Quote &amp; Quick Walkthrough</strong><br>
+          Share a few details about your space and goals. We’ll review photos or do a quick visit so we can give you
+          clear pricing and a realistic plan.
+        </li>
+        <li>
+          <strong>Step 2 – Sort, Remove, and Reset</strong><br>
+          On project day, we sort items into keep/donate/trash, remove unwanted items, and begin rebuilding your garage
+          with smart zones and clear pathways.
+        </li>
+        <li>
+          <strong>Step 3 – Simple System You Can Maintain</strong><br>
+          We walk you through your new layout so you know where everything lives and how to keep it looking good
+          with minimal effort.
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -244,3 +435,4 @@
   </footer>
 </body>
 </html>
+
