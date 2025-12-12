@@ -16,55 +16,56 @@
     header {
       background: #333d49;
       color: white;
-      text-align: center;
+    }
+
+    /* --- LOGO + IMAGE SPLIT HEADER --- */
+    .hero-header {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 1.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .logo-side {
+      flex: 0 0 45%;
     }
 
     .logo-wrapper img {
-    width: 100%;
-    max-width: 450px;   /* good size for left side */
-    display: block;
-    margin: 0;          /* align left instead of centered */
-}
+      width: 100%;
+      max-width: 450px;
+      display: block;
+      margin: 0;
+    }
 
-.tagline {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #bfc3c8; 
-    margin-top: 0.75rem;
-    text-align: left;
-    letter-spacing: 0.5px;
-}
-.hero-header {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.5rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
+    .tagline {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #bfc3c8;        /* light gray from logo text */
+      margin-top: 0.75rem;
+      text-align: left;
+      letter-spacing: 0.5px;
+    }
 
-.logo-side {
-  flex: 0 0 45%;
-}
+    .hero-image {
+      flex: 0 0 55%;
+      position: relative;
+    }
 
-.hero-image {
-  flex: 0 0 55%;
-  position: relative;
-}
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      opacity: 0.45;           /* fade it out */
+      filter: grayscale(40%);  /* subtle, clean look */
+    }
 
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  max-height: 260px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-  opacity: 0.45;          /* fade it out */
-  filter: grayscale(40%); /* subtle, clean look */
-}
-
+    /* --- NAV --- */
     nav {
       background: #3a4452;
       padding: 1rem;
@@ -78,25 +79,28 @@
       font-weight: bold;
     }
 
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- HERO SECTION --- */
     .hero {
       padding: 4rem 2rem;
       text-align: center;
       background: #f0f2f5;
     }
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+    .hero h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 2rem;
     }
 
-    .service-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     button {
@@ -107,8 +111,37 @@
       border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
+      font-weight: bold;
     }
 
+    button:hover {
+      opacity: 0.9;
+    }
+
+    /* --- SERVICES GRID --- */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .service-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    /* --- FOOTER --- */
     footer {
       background: #2c3440;
       color: white;
@@ -116,19 +149,57 @@
       padding: 1.5rem;
       margin-top: 2rem;
     }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 800px) {
+      .hero-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-side,
+      .hero-image {
+        flex: 1 1 100%;
+      }
+
+      .logo-wrapper img {
+        max-width: 100%;
+      }
+
+      .tagline {
+        text-align: left;
+      }
+
+      .hero-image img {
+        max-height: 220px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- HEADER WITH LOGO LEFT & IMAGE RIGHT -->
   <header>
-    <div class="logo-wrapper">
-      <img
-        src="logo_cropped.png"
-        alt="Total Garage Refresh Logo"
-      >
+    <div class="hero-header">
+      <div class="logo-side">
+        <div class="logo-wrapper">
+          <img
+            src="logo_cropped.png"
+            alt="Total Garage Refresh Logo"
+          >
+        </div>
+        <p class="tagline">Clear the Clutter. Reclaim Your Space.</p>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="garage-hero.jpg"
+          alt="Organized garage with clean shelving and storage"
+        >
+      </div>
     </div>
-    <p class="tagline">Clear the Clutter. Reclaim Your Space.</p>
   </header>
 
+  <!-- NAVIGATION -->
   <nav>
     <a href="#services">Services</a>
     <a href="#how-it-works">How It Works</a>
@@ -136,31 +207,37 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section class="hero">
+  <!-- HERO TEXT SECTION -->
+  <section class="hero" id="how-it-works">
     <h2>Garage Cleanouts &amp; Organization Made Easy</h2>
-    <p>We remove clutter, sort belongings, and refresh your garage so you can take back your space.</p>
+    <p>
+      We remove clutter, sort belongings, and refresh your garage so you can take back your space.
+      From full cleanouts to smart organization, we handle the heavy lifting so you don’t have to.
+    </p>
     <button onclick="window.location.href='quote.html'">
       Get Your Free Garage Quote
     </button>
   </section>
 
+  <!-- SERVICES -->
   <section id="services" class="services">
     <div class="service-card">
       <h3>Full Cleanout</h3>
-      <p>We clear out trash, debris, and unwanted items quickly and responsibly.</p>
+      <p>We clear out trash, debris, and unwanted items quickly and responsibly so you can start fresh.</p>
     </div>
 
     <div class="service-card">
       <h3>Sorting &amp; Organization</h3>
-      <p>We sort your items, group similar categories, and organize everything neatly.</p>
+      <p>We sort your items, group similar categories, and organize everything neatly so it’s easy to find.</p>
     </div>
 
     <div class="service-card">
       <h3>Refresh &amp; Reset</h3>
-      <p>A complete garage refresh including sweeping, dusting, and reorganizing the entire space.</p>
+      <p>A complete garage refresh including sweeping, dusting, and reorganizing your entire space.</p>
     </div>
   </section>
 
+  <!-- FOOTER / CONTACT -->
   <footer id="contact">
     <p>Ready to reclaim your garage? Contact us at (555) 123-4567 or info@totalgaragerefresh.com</p>
     <p>&copy; 2025 Total Garage Refresh</p>
