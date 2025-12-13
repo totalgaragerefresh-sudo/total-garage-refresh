@@ -1,142 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Get Your Free Garage Quote | Total Garage Refresh</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Quote | Total Garage Refresh</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f8f8;
-      color: #333;
-    }
+<style>
+:root{
+  --dark:#3f4955;
+  --light:#f5f7fa;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --orange:#ff7a00;
+  --max:900px;
+}
 
-    /* Header matches home page */
-    header {
-      background: #333d49;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f9fafb;
+  color:var(--text);
+}
 
-    /* Logo style */
-    .quote-logo {
-      width: 100%;
-      max-width: 450px;
-      display: block;
-      margin: 0 auto 1rem;
-    }
+header{
+  background:var(--dark);
+  padding:2rem 1.5rem;
+  color:#fff;
+  text-align:center;
+}
 
-    h1 {
-      font-size: 2rem;
-      margin-top: 1rem;
-      margin-bottom: 0.25rem;
-      font-weight: bold;
-    }
+header img{
+  max-width:420px;
+  width:100%;
+}
 
-    .subtext {
-      color: #ddd;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
+main{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:3rem 1.5rem;
+}
 
-    /* Form container */
-    .form-wrapper {
-      max-width: 900px;
-      background: white;
-      margin: 2rem auto;
-      padding: 2rem 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
+h1{
+  font-size:2rem;
+  margin-bottom:.5rem;
+}
 
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
+p{
+  color:var(--muted);
+  margin-bottom:2rem;
+}
 
-    input,
-    textarea,
-    select {
-      width: 100%;
-      padding: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
+form{
+  background:#fff;
+  padding:2rem;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
 
-    textarea {
-      height: 140px;
-      resize: vertical;
-    }
+label{
+  font-weight:700;
+  display:block;
+  margin-bottom:.75rem;
+}
 
-    button {
-      background: #ff7a00;
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 2rem;
-      width: 100%;
-    }
+.group{
+  margin-bottom:2rem;
+}
 
-    button:hover {
-      background: #e56f00;
-    }
-  </style>
+.option{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  padding:.75rem 0;
+  font-size:1.05rem;
+}
+
+input[type="checkbox"]{
+  width:20px;
+  height:20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea{
+  width:100%;
+  padding:.8rem;
+  border-radius:10px;
+  border:1px solid #d1d5db;
+  font-size:1rem;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+button{
+  background:var(--orange);
+  color:#fff;
+  border:none;
+  padding:1rem 1.5rem;
+  font-size:1.1rem;
+  font-weight:900;
+  border-radius:999px;
+  cursor:pointer;
+  width:100%;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+footer{
+  text-align:center;
+  padding:2rem;
+  font-size:.9rem;
+  color:var(--muted);
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo_cropped.png" alt="Total Garage Refresh Logo" class="quote-logo">
-
-  <h1>Get Your Free Quote</h1>
-  <p class="subtext">Fast • Easy • No Obligation</p>
+  <img src="tg-refresh-logo.png" alt="Total Garage Refresh">
 </header>
 
-<div class="form-wrapper">
-  <form name="garage-quote" method="POST" data-netlify="true">
-    <!-- Required for Netlify -->
-    <input type="hidden" name="form-name" value="garage-quote">
+<main>
+  <h1>Request a Free Quote</h1>
+  <p>Serving homeowners across Southwest Florida.  
+     Reach out however you prefer — we’ll respond quickly.</p>
 
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required />
+  <form>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required />
+    <!-- SERVICES -->
+    <div class="group">
+      <label>What type of service do you need? (select all that apply)</label>
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone" required />
+      <label class="option">
+        <input type="checkbox" name="services[]" value="Full Cleanout">
+        Full Cleanout
+      </label>
 
-    <label for="contact-method">Preferred Contact Method</label>
-    <select id="contact-method" name="contact-method" required>
-      <option value="">Select one…</option>
-      <option value="phone">Phone Call</option>
-      <option value="text">Text Message</option>
-      <option value="email">Email</option>
-    </select>
+      <label class="option">
+        <input type="checkbox" name="services[]" value="Organization">
+        Organization
+      </label>
 
-    <label for="city">City</label>
-    <input type="text" id="city" name="city" required />
+      <label class="option">
+        <input type="checkbox" name="services[]" value="Shelving / Storage Setup">
+        Shelving / Storage Setup
+      </label>
 
-    <label for="details">Is There Anything Unique About Your Space?</label>
-    <textarea id="details" name="details"></textarea>
+      <label class="option">
+        <input type="checkbox" name="services[]" value="Painting">
+        Painting
+      </label>
 
-    <button type="submit">Submit Quote Request</button>
+      <label class="option">
+        <input type="checkbox" name="services[]" value="Floor Epoxy">
+        Floor Epoxy
+      </label>
+
+      <label class="option">
+        <input type="checkbox" id="otherService" name="services[]" value="Other">
+        Other
+      </label>
+
+      <div id="otherServiceBox" style="display:none; margin-top:1rem;">
+        <input
+          type="text"
+          name="other_service_details"
+          placeholder="Please describe other services needed">
+      </div>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div class="group">
+      <label>Your Name</label>
+      <input type="text" placeholder="Full name">
+    </div>
+
+    <div class="group">
+      <label>Preferred Contact Method</label>
+      <input type="text" placeholder="Call, text, or email — your choice">
+    </div>
+
+    <div class="group">
+      <label>Phone or Email</label>
+      <input type="text" placeholder="Phone number or email address">
+    </div>
+
+    <div class="group">
+      <label>Tell us about your garage</label>
+      <textarea placeholder="Size, current condition, timeline, anything helpful..."></textarea>
+    </div>
+
+    <button type="submit">Request My Quote</button>
+
   </form>
-</div>
+</main>
+
+<footer>
+  © <span id="year"></span> Total Garage Refresh
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const otherCheckbox = document.getElementById("otherService");
+const otherBox = document.getElementById("otherServiceBox");
+
+otherCheckbox.addEventListener("change", function(){
+  otherBox.style.display = this.checked ? "block" : "none";
+});
+</script>
 
 </body>
 </html>
-
-
