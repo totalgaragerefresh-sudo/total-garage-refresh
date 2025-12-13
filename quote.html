@@ -1,222 +1,329 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get a Quote | Total Garage Refresh</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Quote | Total Garage Refresh</title>
 
-<style>
-:root{
-  --dark:#3f4955;
-  --light:#f5f7fa;
-  --text:#1f2937;
-  --muted:#6b7280;
-  --orange:#ff7a00;
-  --max:900px;
-}
+  <style>
+    :root{
+      --dark:#3f4955;
+      --darker:#2f3741;
+      --light:#f5f7fa;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --orange:#ff7a00;
+      --max:1100px;
+    }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f9fafb;
-  color:var(--text);
-}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#f7f8fb;
+      color:var(--text);
+    }
+    a{text-decoration:none;color:inherit}
 
-header{
-  background:var(--dark);
-  padding:2rem 1.5rem;
-  color:#fff;
-  text-align:center;
-}
+    /* ===== Top Bar (matches site) ===== */
+    .topbar{
+      background:var(--dark);
+      border-bottom:1px solid rgba(255,255,255,.15);
+    }
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:1rem 1.5rem;
+      display:flex;
+      align-items:center;
+      gap:1.25rem;
+    }
+    .brand img{
+      width:260px;
+      max-width:60vw;
+      display:block;
+    }
+    .toplinks{
+      margin-left:auto;
+      display:flex;
+      gap:1.5rem;
+      font-weight:800;
+      color:#fff;
+      align-items:center;
+    }
+    .toplinks a:hover{
+      text-decoration:underline;
+      text-underline-offset:6px;
+    }
+    .cta{
+      background:var(--orange);
+      color:#fff;
+      padding:.65rem 1.1rem;
+      border-radius:999px;
+      font-weight:900;
+      white-space:nowrap;
+    }
 
-header img{
-  max-width:420px;
-  width:100%;
-}
+    /* ===== Page ===== */
+    main{
+      max-width:920px;
+      margin:0 auto;
+      padding:2.25rem 1.5rem 3.25rem;
+    }
+    .page-title{
+      margin:0 0 .35rem 0;
+      font-size:2rem;
+      line-height:1.2;
+    }
+    .page-sub{
+      margin:0 0 1.75rem 0;
+      color:var(--muted);
+      line-height:1.55;
+    }
 
-main{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:3rem 1.5rem;
-}
+    /* ===== Form Card ===== */
+    .card{
+      background:#fff;
+      border-radius:16px;
+      box-shadow:0 14px 40px rgba(0,0,0,.08);
+      padding:1.75rem;
+    }
 
-h1{
-  font-size:2rem;
-  margin-bottom:.5rem;
-}
+    .group{
+      margin-bottom:1.6rem;
+    }
+    label{
+      display:block;
+      font-weight:800;
+      margin-bottom:.6rem;
+    }
 
-p{
-  color:var(--muted);
-  margin-bottom:2rem;
-}
+    .help{
+      margin:.25rem 0 0 0;
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.45;
+    }
 
-form{
-  background:#fff;
-  padding:2rem;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select{
+      width:100%;
+      padding:.85rem .9rem;
+      border-radius:12px;
+      border:1px solid #d1d5db;
+      font-size:1rem;
+      outline:none;
+      background:#fff;
+    }
+    textarea{min-height:120px; resize:vertical;}
 
-label{
-  font-weight:700;
-  display:block;
-  margin-bottom:.75rem;
-}
+    .services-box{
+      border:1px solid #d1d5db;
+      border-radius:14px;
+      padding:1rem 1rem .5rem;
+      background:#fbfcfe;
+    }
+    .option{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      padding:.7rem 0;
+      font-size:1.05rem;
+      font-weight:700;
+    }
+    .option input[type="checkbox"]{
+      width:20px;height:20px;
+    }
 
-.group{
-  margin-bottom:2rem;
-}
+    .two{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+    }
 
-.option{
-  display:flex;
-  align-items:center;
-  gap:.75rem;
-  padding:.75rem 0;
-  font-size:1.05rem;
-}
+    .btn{
+      display:inline-block;
+      width:100%;
+      border:none;
+      background:var(--orange);
+      color:#fff;
+      padding:1rem 1.2rem;
+      border-radius:999px;
+      font-weight:900;
+      font-size:1.1rem;
+      cursor:pointer;
+    }
+    .btn:hover{opacity:.92}
 
-input[type="checkbox"]{
-  width:20px;
-  height:20px;
-}
+    footer{
+      text-align:center;
+      padding:2rem 1.5rem;
+      color:var(--muted);
+      border-top:1px solid #e5e7eb;
+      background:#fff;
+    }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea{
-  width:100%;
-  padding:.8rem;
-  border-radius:10px;
-  border:1px solid #d1d5db;
-  font-size:1rem;
-}
-
-textarea{
-  min-height:120px;
-  resize:vertical;
-}
-
-button{
-  background:var(--orange);
-  color:#fff;
-  border:none;
-  padding:1rem 1.5rem;
-  font-size:1.1rem;
-  font-weight:900;
-  border-radius:999px;
-  cursor:pointer;
-  width:100%;
-}
-
-button:hover{
-  opacity:.9;
-}
-
-footer{
-  text-align:center;
-  padding:2rem;
-  font-size:.9rem;
-  color:var(--muted);
-}
-</style>
+    @media (max-width: 800px){
+      .topbar-inner{flex-wrap:wrap}
+      .toplinks{margin-left:0}
+      .two{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <img src="tg-refresh-logo.png" alt="Total Garage Refresh">
-</header>
+  <!-- Top nav -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="Back to home">
+        <img src="tg-refresh-logo.png" alt="Total Garage Refresh" />
+      </a>
 
-<main>
-  <h1>Request a Free Quote</h1>
-  <p>Serving homeowners across Southwest Florida.  
-     Reach out however you prefer — we’ll respond quickly.</p>
-
-  <form>
-
-    <!-- SERVICES -->
-    <div class="group">
-      <label>What type of service do you need? (select all that apply)</label>
-
-      <label class="option">
-        <input type="checkbox" name="services[]" value="Full Cleanout">
-        Full Cleanout
-      </label>
-
-      <label class="option">
-        <input type="checkbox" name="services[]" value="Organization">
-        Organization
-      </label>
-
-      <label class="option">
-        <input type="checkbox" name="services[]" value="Shelving / Storage Setup">
-        Shelving / Storage Setup
-      </label>
-
-      <label class="option">
-        <input type="checkbox" name="services[]" value="Painting">
-        Painting
-      </label>
-
-      <label class="option">
-        <input type="checkbox" name="services[]" value="Floor Epoxy">
-        Floor Epoxy
-      </label>
-
-      <label class="option">
-        <input type="checkbox" id="otherService" name="services[]" value="Other">
-        Other
-      </label>
-
-      <div id="otherServiceBox" style="display:none; margin-top:1rem;">
-        <input
-          type="text"
-          name="other_service_details"
-          placeholder="Please describe other services needed">
+      <div class="toplinks">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#how">How It Works</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="cta" href="quote.html">Get Quote</a>
       </div>
     </div>
+  </div>
 
-    <!-- CONTACT INFO -->
-    <div class="group">
-      <label>Your Name</label>
-      <input type="text" placeholder="Full name">
+  <main>
+    <h1 class="page-title">Request a Free Quote</h1>
+    <p class="page-sub">
+      Serving homeowners across <strong>Southwest Florida</strong>. Choose your preferred contact method (call, text, or email)
+      and we’ll reach out quickly.
+    </p>
+
+    <!-- NETLIFY FORM: works when deployed on Netlify -->
+    <div class="card">
+      <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <!-- Netlify required hidden input -->
+        <input type="hidden" name="form-name" value="quote" />
+        <!-- Honeypot -->
+        <p style="display:none;">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <!-- SERVICES -->
+        <div class="group">
+          <label>What type of service do you need? (select all that apply)</label>
+          <div class="services-box">
+            <label class="option">
+              <input type="checkbox" name="services[]" value="Full Cleanout" />
+              Full Cleanout
+            </label>
+
+            <label class="option">
+              <input type="checkbox" name="services[]" value="Organization" />
+              Organization
+            </label>
+
+            <label class="option">
+              <input type="checkbox" name="services[]" value="Shelving / Storage Setup" />
+              Shelving / Storage Setup
+            </label>
+
+            <label class="option">
+              <input type="checkbox" name="services[]" value="Painting" />
+              Painting
+            </label>
+
+            <label class="option">
+              <input type="checkbox" name="services[]" value="Floor Epoxy" />
+              Floor Epoxy
+            </label>
+
+            <label class="option">
+              <input type="checkbox" id="otherService" name="services[]" value="Other" />
+              Other
+            </label>
+
+            <div id="otherServiceBox" style="display:none; padding:0 0 1rem 2.35rem;">
+              <input
+                type="text"
+                id="otherServiceText"
+                name="other_service_details"
+                placeholder="Please describe what you need"
+              />
+              <p class="help">If you check “Other,” add a quick note here.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="group two">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+
+          <div>
+            <label for="zip">ZIP Code (Southwest FL)</label>
+            <input id="zip" name="zip" type="text" placeholder="e.g., 33901" required />
+          </div>
+        </div>
+
+        <div class="group two">
+          <div>
+            <label for="contactMethod">Preferred contact method</label>
+            <select id="contactMethod" name="preferred_contact_method" required>
+              <option value="" selected disabled>Select one</option>
+              <option value="Text">Text</option>
+              <option value="Call">Call</option>
+              <option value="Email">Email</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="contactInfo">Phone or Email</label>
+            <input
+              id="contactInfo"
+              name="contact_info"
+              type="text"
+              placeholder="Phone number or email address"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="group">
+          <label for="details">Tell us about your garage</label>
+          <textarea
+            id="details"
+            name="garage_details"
+            placeholder="Size (1-car/2-car), what’s stored, timeline, any goals…"
+          ></textarea>
+          <p class="help">The more detail you share, the faster we can quote accurately.</p>
+        </div>
+
+        <button class="btn" type="submit">Request My Quote</button>
+      </form>
     </div>
+  </main>
 
-    <div class="group">
-      <label>Preferred Contact Method</label>
-      <input type="text" placeholder="Call, text, or email — your choice">
-    </div>
+  <footer>
+    © <span id="year"></span> Total Garage Refresh
+  </footer>
 
-    <div class="group">
-      <label>Phone or Email</label>
-      <input type="text" placeholder="Phone number or email address">
-    </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    <div class="group">
-      <label>Tell us about your garage</label>
-      <textarea placeholder="Size, current condition, timeline, anything helpful..."></textarea>
-    </div>
+    const otherCheckbox = document.getElementById("otherService");
+    const otherBox = document.getElementById("otherServiceBox");
+    const otherText = document.getElementById("otherServiceText");
 
-    <button type="submit">Request My Quote</button>
-
-  </form>
-</main>
-
-<footer>
-  © <span id="year"></span> Total Garage Refresh
-</footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-const otherCheckbox = document.getElementById("otherService");
-const otherBox = document.getElementById("otherServiceBox");
-
-otherCheckbox.addEventListener("change", function(){
-  otherBox.style.display = this.checked ? "block" : "none";
-});
-</script>
+    otherCheckbox.addEventListener("change", function(){
+      const show = this.checked;
+      otherBox.style.display = show ? "block" : "none";
+      otherText.required = show; // makes it required only if "Other" is checked
+      if(!show) otherText.value = "";
+    });
+  </script>
 
 </body>
 </html>
