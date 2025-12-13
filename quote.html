@@ -1,355 +1,166 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Get a Free Quote | Total Garage Refresh</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Free Quote | Total Garage Refresh</title>
 
-  <style>
-    :root{
-      --dark:#3f4955;
-      --darker:#2f3741;
-      --light:#f5f7fa;
-      --card:#ffffff;
-      --text:#1f2937;
-      --muted:#6b7280;
-      --orange:#ff7a00;
-      --border:#d1d5db;
-      --max:1000px;
-    }
+<style>
+:root{
+  --dark:#3f4955;
+  --orange:#ff7a00;
+  --light:#f5f7fa;
+  --border:#e5e7eb;
+}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      color:var(--text);
-      background:var(--light);
-    }
-    a{color:inherit;text-decoration:none}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f9fafb;
+  color:#111827;
+}
 
-    /* Top bar */
-    .topbar{
-      background:var(--dark);
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,.15);
-    }
-    .topbar-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:1rem 1.25rem;
-      display:flex;
-      align-items:center;
-      gap:1rem;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:.75rem;
-      font-weight:900;
-      letter-spacing:.02em;
-    }
-    .brand img{
-      height:36px;
-      width:auto;
-      display:block;
-    }
-    .nav{
-      margin-left:auto;
-      display:flex;
-      gap:1rem;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    .nav a{
-      font-weight:800;
-      opacity:.95;
-    }
-    .nav a:hover{ text-decoration:underline; text-underline-offset:6px; }
-    .cta{
-      background:var(--orange);
-      color:#fff;
-      padding:.6rem 1rem;
-      border-radius:999px;
-      font-weight:900;
-    }
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:3rem 1.5rem;
+}
 
-    /* Layout */
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:2rem 1.25rem 3rem;
-    }
+h1{
+  margin-bottom:.5rem;
+}
+p{
+  color:#4b5563;
+}
 
-    .panel{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:1.5rem;
-      box-shadow:0 10px 22px rgba(0,0,0,.06);
-    }
+form{
+  background:#fff;
+  padding:2rem;
+  border-radius:16px;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  margin-top:2rem;
+}
 
-    h1{
-      margin:0 0 .5rem 0;
-      font-size:2rem;
-      letter-spacing:-.02em;
-    }
-    .sub{
-      margin:0 0 1.25rem 0;
-      color:var(--muted);
-      line-height:1.6;
-    }
+label{
+  display:block;
+  font-weight:700;
+  margin:1.25rem 0 .5rem;
+}
 
-    .success{
-      display:none;
-      margin:0 0 1rem 0;
-      padding:1rem;
-      border-radius:12px;
-      border:1px solid #86efac;
-      background:#ecfdf5;
-      color:#065f46;
-      font-weight:800;
-    }
+input, textarea{
+  width:100%;
+  padding:.75rem;
+  border-radius:10px;
+  border:1px solid var(--border);
+  font-size:1rem;
+}
 
-    form{ margin-top:1rem; }
+textarea{min-height:120px}
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1rem;
-    }
+.checkbox-group{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:1.25rem;
+  margin-top:.5rem;
+}
 
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:.4rem;
-    }
+.checkbox-group label{
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  margin:.75rem 0;
+}
 
-    label{
-      font-weight:800;
-    }
+button{
+  margin-top:2rem;
+  background:var(--orange);
+  color:#fff;
+  border:none;
+  padding:1rem 1.5rem;
+  font-size:1.1rem;
+  font-weight:900;
+  border-radius:999px;
+  cursor:pointer;
+}
 
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea,
-    select{
-      width:100%;
-      padding:.85rem .9rem;
-      border:1px solid var(--border);
-      border-radius:12px;
-      font-size:1rem;
-      outline:none;
-      background:#fff;
-    }
+.success{
+  display:none;
+  margin-top:1.5rem;
+  padding:1rem 1.25rem;
+  border-radius:12px;
+  background:#ecfdf5;
+  border:1px solid #a7f3d0;
+  color:#065f46;
+  font-weight:700;
+}
 
-    textarea{ min-height:120px; resize:vertical; }
-
-    .section-title{
-      margin:1.5rem 0 .6rem 0;
-      font-size:1.15rem;
-      font-weight:900;
-    }
-
-    .box{
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:1rem;
-      background:#fff;
-    }
-
-    .choices{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:.65rem;
-      margin-top:.5rem;
-    }
-
-    .check, .radio{
-      display:flex;
-      align-items:center;
-      gap:.75rem;
-      font-weight:800;
-      padding:.55rem .6rem;
-      border-radius:12px;
-    }
-
-    .check:hover, .radio:hover{
-      background:#f8fafc;
-    }
-
-    input[type="checkbox"], input[type="radio"]{
-      width:20px;
-      height:20px;
-      accent-color:var(--orange);
-    }
-
-    .hint{
-      margin:.5rem 0 0 0;
-      color:var(--muted);
-      font-size:.95rem;
-      line-height:1.5;
-    }
-
-    .actions{
-      margin-top:1.25rem;
-      display:flex;
-      gap:.75rem;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    button{
-      border:none;
-      cursor:pointer;
-      background:var(--orange);
-      color:#fff;
-      font-weight:900;
-      padding:1rem 1.25rem;
-      border-radius:12px;
-      font-size:1rem;
-    }
-
-    .back{
-      font-weight:900;
-      color:var(--darker);
-    }
-
-    footer{
-      text-align:center;
-      padding:1.5rem 1rem 2.5rem;
-      color:var(--muted);
-    }
-
-    /* hide honeypot */
-    .hp{ display:none !important; }
-
-    @media(max-width:800px){
-      .grid{ grid-template-columns:1fr; }
-      .brand img{ height:32px; }
-    }
-  </style>
+/* hide honeypot */
+.hp{display:none}
+</style>
 </head>
 
 <body>
 
-  <div class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="/index.html" aria-label="Go to homepage">
-        <img src="tg-refresh-logo.png" alt="Total Garage Refresh">
-      </a>
+<div class="wrap">
+  <h1>Get a Free Quote</h1>
+  <p>Tell us about your garage. We’ll follow up using your preferred contact method.</p>
 
-      <div class="nav">
-        <a href="/index.html#services">Services</a>
-        <a href="/index.html#how">How It Works</a>
-        <a href="/index.html#contact">Contact</a>
-        <a class="cta" href="/quote.html">Get Quote</a>
-      </div>
-    </div>
+  <div id="success" class="success">
+    ✅ Thanks! Your request was sent successfully. We’ll be in touch soon.
   </div>
 
-  <div class="wrap">
-    <div class="panel">
+  <!-- NETLIFY FORM -->
+  <form
+    name="quote"
+    method="POST"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+    action="/quote.html#success"
+  >
 
-      <div id="successMsg" class="success">
-        ✅ Thanks! We received your request. We’ll follow up using your preferred contact method.
-      </div>
+    <input type="hidden" name="form-name" value="quote">
 
-      <h1>Get a Free Quote</h1>
-      <p class="sub">
-        Tell us what you need in <strong>Southwest Florida</strong> and we’ll get back to you.
-        Choose whatever contact method you prefer.
-      </p>
+    <p class="hp">
+      <label>Don’t fill this out <input name="bot-field"></label>
+    </p>
 
-      <!-- NETLIFY FORM (SUBMISSIONS GO TO NETLIFY → FORMS) -->
-      <form
-        name="quote"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        action="?success=1"
-      >
-        <!-- required hidden input for Netlify -->
-        <input type="hidden" name="form-name" value="quote">
+    <label>Full Name</label>
+    <input type="text" name="name" required>
 
-        <!-- honeypot -->
-        <p class="hp">
-          <label>Don’t fill this out: <input name="bot-field"></label>
-        </p>
+    <label>Email</label>
+    <input type="email" name="email" required>
 
-        <div class="grid">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required>
-          </div>
+    <label>Phone (optional)</label>
+    <input type="tel" name="phone">
 
-          <div class="field">
-            <label for="city">City / Area (Southwest Florida)</label>
-            <input id="city" name="city" type="text" placeholder="Naples, Fort Myers, Cape Coral, etc." required>
-          </div>
+    <label>City / Area (Southwest Florida)</label>
+    <input type="text" name="city" required>
 
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@email.com">
-          </div>
-
-          <div class="field">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555">
-          </div>
-        </div>
-
-        <div class="section-title">Preferred contact method</div>
-        <div class="box">
-          <div class="choices">
-            <label class="radio"><input type="radio" name="preferred_contact" value="Call"> Call</label>
-            <label class="radio"><input type="radio" name="preferred_contact" value="Text"> Text</label>
-            <label class="radio"><input type="radio" name="preferred_contact" value="Email"> Email</label>
-          </div>
-          <p class="hint">Tip: If you pick “Text” or “Call”, make sure you entered a phone number.</p>
-        </div>
-
-        <div class="section-title">What type of service do you need? (select all that apply)</div>
-        <div class="box">
-          <div class="choices">
-            <label class="check"><input type="checkbox" name="service_type[]" value="Full Cleanout"> Full Cleanout</label>
-            <label class="check"><input type="checkbox" name="service_type[]" value="Organization"> Organization</label>
-            <label class="check"><input type="checkbox" name="service_type[]" value="Shelving / Storage Setup"> Shelving / Storage Setup</label>
-            <label class="check"><input type="checkbox" name="service_type[]" value="Painting"> Painting</label>
-            <label class="check"><input type="checkbox" name="service_type[]" value="Floor Epoxy"> Floor Epoxy</label>
-            <label class="check"><input type="checkbox" name="service_type[]" value="Other"> Other</label>
-          </div>
-        </div>
-
-        <div class="section-title">Details</div>
-        <div class="field">
-          <label for="details">Tell us about your garage</label>
-          <textarea id="details" name="details" placeholder="Size (1-car/2-car), what’s in it, what you want it to function like, any deadlines, etc."></textarea>
-        </div>
-
-        <div class="actions">
-          <button type="submit">Submit Request</button>
-          <a class="back" href="/index.html">← Back to Home</a>
-        </div>
-
-      </form>
+    <label>What type of service do you need? (select all that apply)</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="service[]" value="Full Cleanout"> Full Cleanout</label>
+      <label><input type="checkbox" name="service[]" value="Organization"> Organization</label>
+      <label><input type="checkbox" name="service[]" value="Shelving / Storage Setup"> Shelving / Storage Setup</label>
+      <label><input type="checkbox" name="service[]" value="Painting"> Painting</label>
+      <label><input type="checkbox" name="service[]" value="Floor Epoxy"> Floor Epoxy</label>
+      <label><input type="checkbox" name="service[]" value="Other"> Other</label>
     </div>
-  </div>
 
-  <footer>
-    © <span id="year"></span> Total Garage Refresh
-  </footer>
+    <label>Additional Details</label>
+    <textarea name="message"></textarea>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    <button type="submit">Submit Request</button>
+  </form>
+</div>
 
-    // Show success message after Netlify redirect
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("success") === "1") {
-      document.getElementById("successMsg").style.display = "block";
-      // optional: scroll to top so they see it
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  </script>
+<script>
+  // show success message if redirected back
+  if (window.location.hash === "#success") {
+    document.getElementById("success").style.display = "block";
+  }
+</script>
 
 </body>
 </html>
