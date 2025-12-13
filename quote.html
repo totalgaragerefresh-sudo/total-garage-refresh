@@ -25,7 +25,7 @@
     }
     a{text-decoration:none;color:inherit}
 
-    /* ===== Top Bar (matches site) ===== */
+    /* ===== TOP BAR ===== */
     .topbar{
       background:var(--dark);
       border-bottom:1px solid rgba(255,255,255,.15);
@@ -61,81 +61,68 @@
       padding:.65rem 1.1rem;
       border-radius:999px;
       font-weight:900;
-      white-space:nowrap;
     }
 
-    /* ===== Page ===== */
+    /* ===== PAGE ===== */
     main{
       max-width:920px;
       margin:0 auto;
-      padding:2.25rem 1.5rem 3.25rem;
+      padding:2.5rem 1.5rem 3.5rem;
     }
-    .page-title{
-      margin:0 0 .35rem 0;
+    h1{
+      margin:0 0 .5rem;
       font-size:2rem;
-      line-height:1.2;
     }
-    .page-sub{
-      margin:0 0 1.75rem 0;
+    .sub{
+      margin:0 0 1.75rem;
       color:var(--muted);
-      line-height:1.55;
+      line-height:1.6;
     }
 
-    /* ===== Form Card ===== */
+    /* ===== FORM ===== */
     .card{
       background:#fff;
       border-radius:16px;
       box-shadow:0 14px 40px rgba(0,0,0,.08);
-      padding:1.75rem;
+      padding:2rem;
     }
-
-    .group{
-      margin-bottom:1.6rem;
-    }
+    .group{margin-bottom:1.75rem}
     label{
       display:block;
       font-weight:800;
       margin-bottom:.6rem;
     }
-
-    .help{
-      margin:.25rem 0 0 0;
-      color:var(--muted);
-      font-size:.95rem;
-      line-height:1.45;
-    }
-
     input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea,
-    select{
+    select,
+    textarea{
       width:100%;
-      padding:.85rem .9rem;
+      padding:.85rem;
       border-radius:12px;
       border:1px solid #d1d5db;
       font-size:1rem;
-      outline:none;
-      background:#fff;
     }
-    textarea{min-height:120px; resize:vertical;}
+    textarea{min-height:120px}
 
+    /* ===== SERVICES ===== */
     .services-box{
       border:1px solid #d1d5db;
       border-radius:14px;
-      padding:1rem 1rem .5rem;
+      padding:1.25rem;
       background:#fbfcfe;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
     }
     .option{
       display:flex;
       align-items:center;
       gap:.75rem;
-      padding:.7rem 0;
       font-size:1.05rem;
       font-weight:700;
     }
-    .option input[type="checkbox"]{
-      width:20px;height:20px;
+    .option input{
+      width:20px;
+      height:20px;
     }
 
     .two{
@@ -144,186 +131,121 @@
       gap:1rem;
     }
 
-    .btn{
-      display:inline-block;
+    button{
       width:100%;
-      border:none;
       background:var(--orange);
       color:#fff;
-      padding:1rem 1.2rem;
-      border-radius:999px;
-      font-weight:900;
+      border:none;
+      padding:1rem;
       font-size:1.1rem;
+      font-weight:900;
+      border-radius:999px;
       cursor:pointer;
     }
-    .btn:hover{opacity:.92}
 
     footer{
       text-align:center;
-      padding:2rem 1.5rem;
+      padding:2rem;
       color:var(--muted);
       border-top:1px solid #e5e7eb;
       background:#fff;
     }
 
-    @media (max-width: 800px){
-      .topbar-inner{flex-wrap:wrap}
-      .toplinks{margin-left:0}
+    @media(max-width:800px){
       .two{grid-template-columns:1fr}
+      .services-box{grid-template-columns:1fr}
+      .toplinks{margin-left:0}
+      .topbar-inner{flex-wrap:wrap}
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Top nav -->
-  <div class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="index.html" aria-label="Back to home">
-        <img src="tg-refresh-logo.png" alt="Total Garage Refresh" />
-      </a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <img src="tg-refresh-logo.png" alt="Total Garage Refresh">
+    </a>
 
-      <div class="toplinks">
-        <a href="index.html#services">Services</a>
-        <a href="index.html#how">How It Works</a>
-        <a href="index.html#contact">Contact</a>
-        <a class="cta" href="quote.html">Get Quote</a>
-      </div>
+    <div class="toplinks">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#how">How It Works</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="cta" href="quote.html">Get Quote</a>
     </div>
   </div>
+</div>
 
-  <main>
-    <h1 class="page-title">Request a Free Quote</h1>
-    <p class="page-sub">
-      Serving homeowners across <strong>Southwest Florida</strong>. Choose your preferred contact method (call, text, or email)
-      and we’ll reach out quickly.
-    </p>
+<main>
+  <h1>Request a Free Quote</h1>
+  <p class="sub">
+    Serving homeowners across <strong>Southwest Florida</strong>.
+    Choose your preferred contact method and we’ll reach out quickly.
+  </p>
 
-    <!-- NETLIFY FORM: works when deployed on Netlify -->
-    <div class="card">
-      <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <!-- Netlify required hidden input -->
-        <input type="hidden" name="form-name" value="quote" />
-        <!-- Honeypot -->
-        <p style="display:none;">
-          <label>Don’t fill this out: <input name="bot-field" /></label>
-        </p>
+  <div class="card">
+    <form name="quote" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="quote">
 
-        <!-- SERVICES -->
-        <div class="group">
-          <label>What type of service do you need? (select all that apply)</label>
-          <div class="services-box">
-            <label class="option">
-              <input type="checkbox" name="services[]" value="Full Cleanout" />
-              Full Cleanout
-            </label>
-
-            <label class="option">
-              <input type="checkbox" name="services[]" value="Organization" />
-              Organization
-            </label>
-
-            <label class="option">
-              <input type="checkbox" name="services[]" value="Shelving / Storage Setup" />
-              Shelving / Storage Setup
-            </label>
-
-            <label class="option">
-              <input type="checkbox" name="services[]" value="Painting" />
-              Painting
-            </label>
-
-            <label class="option">
-              <input type="checkbox" name="services[]" value="Floor Epoxy" />
-              Floor Epoxy
-            </label>
-
-            <label class="option">
-              <input type="checkbox" id="otherService" name="services[]" value="Other" />
-              Other
-            </label>
-
-            <div id="otherServiceBox" style="display:none; padding:0 0 1rem 2.35rem;">
-              <input
-                type="text"
-                id="otherServiceText"
-                name="other_service_details"
-                placeholder="Please describe what you need"
-              />
-              <p class="help">If you check “Other,” add a quick note here.</p>
-            </div>
-          </div>
+      <!-- SERVICES -->
+      <div class="group">
+        <label>Type of Service (select all that apply)</label>
+        <div class="services-box">
+          <label class="option"><input type="checkbox" name="service" value="Full Cleanout"> Full Cleanout</label>
+          <label class="option"><input type="checkbox" name="service" value="Organization"> Organization</label>
+          <label class="option"><input type="checkbox" name="service" value="Shelving / Storage Setup"> Shelving / Storage Setup</label>
+          <label class="option"><input type="checkbox" name="service" value="Painting"> Painting</label>
+          <label class="option"><input type="checkbox" name="service" value="Floor Epoxy"> Floor Epoxy</label>
+          <label class="option"><input type="checkbox" name="service" value="Other"> Other</label>
         </div>
+      </div>
 
-        <!-- CONTACT -->
-        <div class="group two">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required />
-          </div>
-
-          <div>
-            <label for="zip">ZIP Code (Southwest FL)</label>
-            <input id="zip" name="zip" type="text" placeholder="e.g., 33901" required />
-          </div>
+      <!-- CONTACT -->
+      <div class="group two">
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" required>
         </div>
-
-        <div class="group two">
-          <div>
-            <label for="contactMethod">Preferred contact method</label>
-            <select id="contactMethod" name="preferred_contact_method" required>
-              <option value="" selected disabled>Select one</option>
-              <option value="Text">Text</option>
-              <option value="Call">Call</option>
-              <option value="Email">Email</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="contactInfo">Phone or Email</label>
-            <input
-              id="contactInfo"
-              name="contact_info"
-              type="text"
-              placeholder="Phone number or email address"
-              required
-            />
-          </div>
+        <div>
+          <label>ZIP Code</label>
+          <input type="text" name="zip" required>
         </div>
+      </div>
 
-        <div class="group">
-          <label for="details">Tell us about your garage</label>
-          <textarea
-            id="details"
-            name="garage_details"
-            placeholder="Size (1-car/2-car), what’s stored, timeline, any goals…"
-          ></textarea>
-          <p class="help">The more detail you share, the faster we can quote accurately.</p>
+      <div class="group two">
+        <div>
+          <label>Preferred Contact Method</label>
+          <select name="contact_method" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Text</option>
+            <option>Call</option>
+            <option>Email</option>
+          </select>
         </div>
+        <div>
+          <label>Phone or Email</label>
+          <input type="text" name="contact_info" required>
+        </div>
+      </div>
 
-        <button class="btn" type="submit">Request My Quote</button>
-      </form>
-    </div>
-  </main>
+      <div class="group">
+        <label>Tell us about your garage</label>
+        <textarea name="details" placeholder="Garage size, condition, timeline, etc."></textarea>
+      </div>
 
-  <footer>
-    © <span id="year"></span> Total Garage Refresh
-  </footer>
+      <button type="submit">Request My Quote</button>
+    </form>
+  </div>
+</main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+<footer>
+  © <span id="year"></span> Total Garage Refresh
+</footer>
 
-    const otherCheckbox = document.getElementById("otherService");
-    const otherBox = document.getElementById("otherServiceBox");
-    const otherText = document.getElementById("otherServiceText");
-
-    otherCheckbox.addEventListener("change", function(){
-      const show = this.checked;
-      otherBox.style.display = show ? "block" : "none";
-      otherText.required = show; // makes it required only if "Other" is checked
-      if(!show) otherText.value = "";
-    });
-  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
