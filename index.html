@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Total Garage Refresh</title>
+<title>Total Garage Refresh | Garage Cleanouts & Organization in Southwest Florida</title>
 
 <style>
 :root{
@@ -28,41 +28,55 @@ a{text-decoration:none;color:inherit}
 /* ================= HEADER ================= */
 header{
   background:var(--dark);
-  padding:3rem 1.5rem;
+  padding:3.25rem 1.5rem;
 }
 .header-inner{
   max-width:var(--max);
   margin:0 auto;
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap:3rem;
 }
+
+/* Logo block */
 .logo-side{
-  flex: 0 0 42%;
+  flex: 0 0 46%;
   display:flex;
-  flex-direction:column;      /* stacks logo + tagline */
-  align-items:flex-start;     /* keeps logo LEFT */
+  flex-direction:column;
+  align-items:flex-start; /* logo shifts left */
+  margin-left:-18px;      /* subtle left nudge */
 }
 .logo-side img{
-  max-width:520px;
+  max-width:640px; /* bigger logo */
   width:100%;
   display:block;
 }
 .tagline{
   margin-top:1rem;
   width:100%;
-  text-align:center;          /* centers text under logo */
+  text-align:center; /* centered under logo */
   font-size:1.6rem;
   font-weight:700;
   color:#d1d5db;
 }
+.tagline-sub{
+  margin-top:.55rem;
+  width:100%;
+  text-align:center;
+  font-size:.95rem;
+  color:#cbd5e1;
+  letter-spacing:.2px;
+}
+
+/* Hero photo */
 .hero-image{
   flex:1;
   display:flex;
   justify-content:flex-end;
 }
 .hero-image img{
-  max-width:820px;
+  max-width:920px; /* bigger photo */
   width:100%;
   border-radius:18px;
   box-shadow:0 14px 40px rgba(0,0,0,.25);
@@ -72,6 +86,9 @@ header{
 nav{
   background:var(--dark);
   border-top:1px solid rgba(255,255,255,.15);
+  position:sticky;
+  top:0;
+  z-index:50;
 }
 .nav-inner{
   max-width:var(--max);
@@ -97,21 +114,20 @@ nav{
 .nav-cta a{
   background:var(--orange);
   color:#fff;
-  padding:.7rem 1.2rem;
+  padding:.72rem 1.2rem;
   border-radius:999px;
   font-weight:900;
 }
 
 /* ================= STATIONARY BACKGROUND SECTION ================= */
 .fixed-hero{
-  /* this is the key */
   background-image:
     linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
     url("garage-clean-house.webp");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  background-attachment:fixed; /* stays stationary while you scroll */
+  background-attachment:fixed;
   min-height:70vh;
   display:flex;
   align-items:center;
@@ -145,12 +161,13 @@ section{
 }
 h2{
   font-size:2rem;
-  margin-bottom:1rem;
+  margin:0 0 1rem 0;
 }
 p{
   max-width:820px;
   color:var(--muted);
   line-height:1.6;
+  margin:0 0 1rem 0;
 }
 .grid{
   display:grid;
@@ -164,6 +181,9 @@ p{
   border-radius:14px;
   box-shadow:0 8px 18px rgba(0,0,0,.08);
 }
+.card h3{
+  margin:0 0 .5rem 0;
+}
 
 /* ================= CTA ================= */
 .cta{
@@ -171,6 +191,7 @@ p{
   color:#fff;
   text-align:center;
 }
+.cta h2{color:#fff}
 .cta p{color:#e5e7eb}
 .btn{
   display:inline-block;
@@ -179,6 +200,14 @@ p{
   padding:1rem 1.5rem;
   border-radius:12px;
   font-weight:900;
+}
+
+/* ================= FAQ ================= */
+.faq p{
+  margin-bottom:1.2rem;
+}
+.faq strong{
+  color:#111827;
 }
 
 /* ================= FOOTER ================= */
@@ -192,18 +221,19 @@ footer{
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
   .header-inner{flex-direction:column}
+  .logo-side{
+    margin-left:0;
+    align-items:center;
+  }
+  .tagline, .tagline-sub{ text-align:center; }
   .hero-image{justify-content:center}
   .grid{grid-template-columns:1fr}
   .nav-inner{flex-wrap:wrap}
   .nav-cta{margin-left:0}
   .fixed-hero h1{font-size:2.2rem}
-}
 
-/* Mobile Safari fix: background-attachment: fixed is unreliable on iOS */
-@media (max-width: 900px) {
-  .fixed-hero{
-    background-attachment:scroll;
-  }
+  /* mobile safari reliability */
+  .fixed-hero{ background-attachment:scroll; }
 }
 </style>
 </head>
@@ -215,7 +245,9 @@ footer{
     <div class="logo-side">
       <img src="tg-refresh-logo.png" alt="Total Garage Refresh">
       <div class="tagline">Clear the Clutter. Reclaim Your Space.</div>
+      <div class="tagline-sub">Serving Southwest Florida • Insured • Free Quotes</div>
     </div>
+
     <div class="hero-image">
       <img src="garage-hero.jpg" alt="Clean organized garage">
     </div>
@@ -227,6 +259,8 @@ footer{
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#how">How It Works</a>
+      <a href="#service-area">Service Area</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-cta">
@@ -241,8 +275,8 @@ footer{
     <h1>Picture Your Garage Working Again</h1>
     <p>
       Clean floors, clear surfaces, and everything in its place.
-      We create realistic, lived-in organization that fits how you actually use your garage.
-      No fancy staging — just a space that finally works for you.
+      We create realistic, lived-in organization that fits how you actually use your garage —
+      no fancy staging, just a space that finally works for you.
     </p>
   </div>
 </section>
@@ -251,18 +285,19 @@ footer{
   <div class="wrap">
     <h2>Our Services</h2>
     <p>We help homeowners declutter, organize, and reclaim their garage so it actually works for daily life.</p>
+
     <div class="grid">
       <div class="card">
         <h3>Garage Clean-Out</h3>
-        <p>We sort, remove, and reset clutter efficiently.</p>
+        <p>We sort, remove, and reset clutter efficiently so you can breathe again.</p>
       </div>
       <div class="card">
         <h3>Organization</h3>
-        <p>Simple systems you can maintain.</p>
+        <p>Simple zones, practical storage, and systems you can maintain.</p>
       </div>
       <div class="card">
         <h3>Full Refresh</h3>
-        <p>Clean floors, clear space, finished look.</p>
+        <p>A clean, finished space with clear floors and a plan that sticks.</p>
       </div>
     </div>
   </div>
@@ -271,14 +306,60 @@ footer{
 <section id="how">
   <div class="wrap">
     <h2>How It Works</h2>
-    <p>Tell us about your garage, get a quote, schedule a refresh — we do the heavy lifting.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>1. Tell Us About Your Garage</h3>
+        <p>Contact us however you prefer — call, text, or email. Share a few photos and your goals.</p>
+      </div>
+      <div class="card">
+        <h3>2. We Handle the Refresh</h3>
+        <p>We sort, remove clutter, clean floors and surfaces, and create simple zones that make sense.</p>
+      </div>
+      <div class="card">
+        <h3>3. Enjoy a Garage That Works</h3>
+        <p>Park your car, find what you need fast, and keep the space organized without constant upkeep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="service-area">
+  <div class="wrap">
+    <h2>Proudly Serving Southwest Florida</h2>
+    <p>
+      We work with homeowners across Southwest Florida, including Naples, Fort Myers, Cape Coral,
+      Bonita Springs, Estero, and surrounding areas.
+    </p>
+    <p>
+      Reach out the way that’s easiest for you — call, text, or email. We respond quickly and provide
+      straightforward, no-pressure quotes.
+    </p>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <h2>Frequently Asked Questions</h2>
+
+    <p><strong>Do you haul items away?</strong><br>
+    Yes — we can remove unwanted items and help coordinate donation or disposal.</p>
+
+    <p><strong>How long does a garage refresh take?</strong><br>
+    Most projects are completed in a single day, depending on size and clutter.</p>
+
+    <p><strong>Do I need to be home?</strong><br>
+    Not necessarily. We’ll coordinate access and keep you updated.</p>
+
+    <p><strong>What does it cost?</strong><br>
+    Pricing depends on garage size and scope. Quotes are free and transparent.</p>
   </div>
 </section>
 
 <section class="cta" id="contact">
   <div class="wrap">
     <h2>Ready to Get Started?</h2>
-    <p>Request a free quote and reclaim your garage.</p>
+    <p>Request a free quote and reclaim your garage. We’ll work around your schedule.</p>
     <a class="btn" href="quote.html">Get a Free Quote</a>
   </div>
 </section>
